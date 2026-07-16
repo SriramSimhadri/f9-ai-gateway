@@ -1,0 +1,29 @@
+# Environment secrets (CRITICAL)
+.env
+.env.*
+!.env.example
+
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Poetry & virtual environments
+.venv/
+poetry.lock  # Note: Keep this if you want deterministic team builds. 
+             # However, if you are doing simple local testing, some developers ignore it,
+             # but standard practice for an application is to COMMIT poetry.lock. 
+             # We will leave poetry.lock OUT of this ignore list so it gets tracked!
+
+# macOS system files
+.DS_Store
+Thumps.db
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Docker
+.docker/

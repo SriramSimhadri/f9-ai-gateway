@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "f9-ai-gateway"
+version = "0.1.0"
+description = "A semantic-caching AI Gateway proxying LLM endpoints."
+authors = ["Sriram"]
+readme = "README.md"
+packages = [{include = "gateway"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.110.0"
+uvicorn = "^0.28.0"
+valkey = "^6.0.0"          # Native Python Valkey client
+sentence-transformers = "^2.6.0"  # For our local embedding model
+numpy = "^1.26.0"          # Vector structural utilities
+httpx = "^0.27.0"          # Asynchronous HTTP client to proxy upstream LLM requests
+pydantic = "^2.6.0"        # Data validation and settings management
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
