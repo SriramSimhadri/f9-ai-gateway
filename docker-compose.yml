@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  # 1. Our Vector-Enabled Cache Database
+  valkey:
+    image: valkey/valkey-bundle:latest
+    container_name: valkey-gateway-cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - valkey_data:/data
+    networks:
+      - gateway_network
+
+  # 2. Our AI Gateway Proxy Service
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: f9-ai-gateway
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - VALKEY_HOST=valkey # Overrides local 127.0.0.1 to use Docker's internal DNS routing
+    depends_on:
+      - valkey
+    networks:
+      - gateway_network
+
+networks:
+  gateway_network:
+    driver: bridge
+
+volumes:
+  valkey_data:
+    driver: local

@@ -15,6 +15,7 @@ sentence-transformers = "^2.6.0"  # For our local embedding model
 numpy = "^1.26.0"          # Vector structural utilities
 httpx = "^0.27.0"          # Asynchronous HTTP client to proxy upstream LLM requests
 pydantic = "^2.6.0"        # Data validation and settings management
+pydantic-settings = "^2.14.2"
 
 [build-system]
 requires = ["poetry-core"]

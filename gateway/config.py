@@ -21,11 +21,11 @@ class Settings(BaseSettings):
     
     # 4. Upstream LLM Provider Endpoint (for local testing default is Ollama)
     UPSTREAM_LLM_URL: str = Field(
-        default="http://localhost:11434/v1", 
+        default="https://api.mockllm.com/v1", 
         description="The base URL of the target LLM provider (e.g., Ollama, OpenAI)"
     )
     UPSTREAM_LLM_MODEL: str = Field(
-        default="llama3", 
+        default="mock-model", 
         description="Default model used when proxying requests upstream"
     )
 
